@@ -1,0 +1,145 @@
+{
+  "info": {
+    "_postman_id": "3f27a6d5-7ef0-494a-8395-3b93583800d9",
+    "name": "Spring Boot Scheduler",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "276892"
+  },
+  "item": [
+    {
+      "name": "Get Scheduler",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"jobName\": \"test-get\",\n    \"apiURL\": \"/hello\",\n    \"baseURL\": \"http://localhost:8080\",\n    \"cron\": \"10 * * * * *\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/scheduleIt",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "scheduleIt"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Scheduler",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"jobName\": \"test-get\",\n    \"apiURL\": \"/hello\",\n    \"baseURL\": \"http://localhost:8080\",\n    \"cron\": \"10 * * * * *\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/schedulePost",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "schedulePost"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Scheduled Jobs",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"jobName\": \"test-get\",\n    \"apiURL\": \"/hello\",\n    \"baseURL\": \"http://localhost:8080\",\n    \"cron\": \"10 * * * * *\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/scheduledJobs",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "scheduledJobs"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Scheduled Jobs",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"jobName\": \"test-get\",\n    \"apiURL\": \"/hello\",\n    \"baseURL\": \"http://localhost:8080\",\n    \"cron\": \"10 * * * * *\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/deleteJob/test-get3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "deleteJob",
+            "test-get3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hello",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
