@@ -47,6 +47,7 @@ public class SchedulerController {
         if (null != job) {
             schedulerService.scheduleGetJob(job);
         }
+        log.info("Scheduled job: {}", job);
     }
 
     @PostMapping("/schedulePost")
@@ -54,6 +55,7 @@ public class SchedulerController {
         if (null != job) {
             schedulerService.schedulePostJob(job);
         }
+        log.info("Scheduled job: {}", job);
     }
 
     @GetMapping("/scheduledJobs")

@@ -1,1 +1,7 @@
 # spring-boot-scheduler
+
+Objective is to create a Spring Scheduler with dynamically scheduling jobs
+
+It provides rest api's to schedule certain jobs/tasks using this Spring Scheduler, which will allow other projects
+to use this service inside their microservices without any change/addition to the existing microservices. 
+
