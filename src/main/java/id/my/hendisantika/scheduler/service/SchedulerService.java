@@ -29,4 +29,7 @@ public class SchedulerService {
     private final WebClient webClient;
     private final Map<String, Job> schedulerMap = new HashMap<>();
 
+    public Map<String, Job> getScheduledJobs() {
+        return schedulerMap;
+    }
 }
