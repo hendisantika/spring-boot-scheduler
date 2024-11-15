@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 /**
  * Created by IntelliJ IDEA.
@@ -51,5 +52,10 @@ public class SchedulerController {
         if (null != job) {
             schedulerService.schedulePostJob(job);
         }
+    }
+
+    @GetMapping("/scheduledJobs")
+    public Map<String, Job> getScheduledJobs() {
+        return schedulerService.getScheduledJobs();
     }
 }
