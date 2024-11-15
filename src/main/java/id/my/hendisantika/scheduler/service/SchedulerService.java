@@ -32,4 +32,11 @@ public class SchedulerService {
     public Map<String, Job> getScheduledJobs() {
         return schedulerMap;
     }
+
+    public void deleteScheduledJob(String jobId) {
+        if (schedulerMap.containsKey(jobId))
+            schedulerMap.remove(jobId);
+        else
+            log.error("No jobs exists with Id:{}", jobId);
+    }
 }
