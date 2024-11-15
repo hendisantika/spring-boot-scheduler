@@ -39,4 +39,10 @@ public class SchedulerController {
         return "Hello " + job.getJobName();
     }
 
+    @PostMapping("/scheduleIt")
+    public void scheduleGetJob(@RequestBody Job job) {
+        if (null != job) {
+            schedulerService.scheduleGetJob(job);
+        }
+    }
 }
