@@ -63,4 +63,27 @@ public class SchedulerService {
         );
         schedulerMap.put(job.getJobName() + "-" + System.currentTimeMillis(), job);
     }
+
+    public void schedulePostJob(Job job) {
+        log.info("scheduling post job:{}", job.toString());
+        taskScheduler.schedule(
+                () -> {
+                    ResponseEntity<String> response = webClient.post()
+                            .uri(job.getBaseURL() + job.getApiURL())
+                            .header("Content-Type", "application/json")
+                            .bodyValue(job)
+                            .retrieve()
+                            .toEntity(String.class)
+                            .block();
+
+                    if (response.getStatusCode().isError()) {
+                        log.error("Failure calling Job:{}with URL:{}{}", job.getJobName(), job.getBaseURL(), job.getApiURL());
+                    } else {
+                        log.info(response.getBody());
+                    }
+                },
+                new CronTrigger(job.getCron(), TimeZone.getTimeZone(TimeZone.getDefault().toZoneId()))
+        );
+        schedulerMap.put(job.getJobName() + "-" + System.currentTimeMillis(), job);
+    }
 }
