@@ -3,7 +3,10 @@ package id.my.hendisantika.scheduler.controller;
 import id.my.hendisantika.scheduler.service.SchedulerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,4 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SchedulerController {
 
     private final SchedulerService schedulerService;
+
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello World! " + LocalDateTime.now();
+    }
 }
